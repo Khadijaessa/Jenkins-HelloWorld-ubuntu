@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Khadijaessa/jenkins-helloWworld-ubuntu.git'
+                git branch: 'main', url: 'https://github.com/Khadijaessa/jenkins-HelloWorld-ubuntu.git'
             }
         }
         stage('Build') {
