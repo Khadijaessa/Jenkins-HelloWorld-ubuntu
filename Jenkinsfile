@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        "JAVA_HOME = /usr/bin/java"
-        "PYTHON_HOME = /usr/bin/python3"
-        "PATH = ${env.JAVA_HOME};${env.PYTHON_HOME};${env.PATH}"
+        JAVA_HOME = '/usr/bin/java'
+        PYTHON_HOME = '/usr/bin/python3'
+        PATH = "${JAVA_HOME}:${PYTHON_HOME}:${env.PATH}"
     }
     stages {
         stage('Checkout') {
