@@ -1,14 +1,14 @@
 pipeline {
     agent any
     environment {
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk1.8.0_202'
-        PYTHON_HOME = 'C:\\Program Files\\Python312\\python.exe'
-        PATH = "${env.JAVA_HOME}\\bin;${env.PYTHON_HOME};${env.PATH}"
+        "JAVA_HOME = /usr/bin/java"
+        "PYTHON_HOME = /usr/bin/python3"
+        "PATH = ${env.JAVA_HOME};${env.PYTHON_HOME};${env.PATH}"
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Khadijaessa/jenkins-hello-world.git'
+                git branch: 'main', url: 'https://github.com/Khadijaessa/jenkins-helloWworld-ubuntu.git'
             }
         }
         stage('Build') {
@@ -16,9 +16,9 @@ pipeline {
                 script {
                     if (isUnix()) {
                         sh 'echo "Running on Unix"'
+                        sh 'python3 hello.py'
                         sh 'javac HelloWorld.java'
                         sh 'java HelloWorld'
-                        sh 'python3 hello.py'
                     } else {
                         bat 'echo "Running on Windows"'
                         bat 'javac HelloWorld.java'
